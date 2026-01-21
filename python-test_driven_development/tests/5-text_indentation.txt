@@ -1,16 +1,17 @@
-The ``text_indentation`` function prints text with two new lines after ., ? and :.
+>>> text_indentation = __import__('5-text_indentation').text_indentation
 
 >>> text_indentation("Hello. World")
 Hello.
-
+<BLANKLINE>
 World
 
 >>> text_indentation("Hi?  Yes: no.")
 Hi?
-
+<BLANKLINE>
 Yes:
-
+<BLANKLINE>
 no.
+<BLANKLINE>
 
 >>> text_indentation("No special chars")
 No special chars
