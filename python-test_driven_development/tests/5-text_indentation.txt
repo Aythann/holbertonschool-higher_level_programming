@@ -1,0 +1,29 @@
+The ``text_indentation`` function prints text with indentation.
+
+>>> text_indentation("Hello. World")
+Hello.
+
+World
+
+>>> text_indentation("Hello? World")
+Hello?
+
+World
+
+>>> text_indentation("Hello: World")
+Hello:
+
+World
+
+>>> text_indentation("Hello.   World")
+Hello.
+
+World
+
+>>> text_indentation("Hello")
+Hello
+
+>>> text_indentation("")
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string
