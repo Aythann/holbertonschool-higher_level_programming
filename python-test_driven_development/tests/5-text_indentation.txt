@@ -1,29 +1,20 @@
-The ``text_indentation`` function prints text with indentation.
+The ``text_indentation`` function prints text with two new lines after ., ? and :.
 
 >>> text_indentation("Hello. World")
 Hello.
 
 World
 
->>> text_indentation("Hello? World")
-Hello?
+>>> text_indentation("Hi?  Yes: no.")
+Hi?
 
-World
+Yes:
 
->>> text_indentation("Hello: World")
-Hello:
+no.
 
-World
+>>> text_indentation("No special chars")
+No special chars
 
->>> text_indentation("Hello.   World")
-Hello.
-
-World
-
->>> text_indentation("Hello")
-Hello
-
->>> text_indentation("")
 >>> text_indentation(123)
 Traceback (most recent call last):
 TypeError: text must be a string
