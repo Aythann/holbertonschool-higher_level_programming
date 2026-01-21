@@ -1,9 +1,22 @@
 #!/usr/bin/python3
-"""Module that prints text with indentation."""
+"""
+This module provides a function that prints a text with indentation.
+
+The function prints the text and adds two new lines after each of
+these characters: '.', '?' and ':' while removing extra spaces after them.
+"""
 
 
 def text_indentation(text):
-    """Prints a text with two new lines after ., ? and :"""
+    """
+    Print a text with two new lines after '.', '?' and ':'.
+
+    Args:
+        text (str): the text to print
+
+    Raises:
+        TypeError: if text is not a string
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
