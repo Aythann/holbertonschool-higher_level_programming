@@ -4,9 +4,6 @@ Tests for matrix_divided
 
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-Normal cases
-============
-
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> matrix_divided(matrix, 3)
 [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
@@ -16,9 +13,6 @@ Normal cases
 >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 2)
 [[0.75, 1.25], [1.75, 2.25]]
 
-Errors: matrix
-==============
-
 >>> matrix_divided("not a matrix", 2)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
@@ -27,7 +21,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> matrix_divided([[]], 2)
+>>> matrix_divided([[], []], 2)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
@@ -39,8 +33,9 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 Traceback (most recent call last):
 TypeError: Each row of the matrix must have the same size
 
-Errors: div
-===========
+>>> matrix_divided([[True, 2], [3, 4]], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 >>> matrix_divided([[1, 2], [3, 4]], "2")
 Traceback (most recent call last):

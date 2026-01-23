@@ -6,6 +6,7 @@ Tests for say_my_name
 
 >>> say_my_name("John", "Smith")
 My name is John Smith
+
 >>> say_my_name("Bob")
 My name is Bob 
 

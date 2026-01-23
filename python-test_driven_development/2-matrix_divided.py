@@ -2,7 +2,8 @@
 """
 This module provides a function to divide all elements of a matrix.
 
-The matrix must be a list of lists of integers or floats.
+The matrix must be a list of lists of integers or floats and all rows
+must have the same size. The function returns a new matrix.
 """
 
 
@@ -10,7 +11,18 @@ def matrix_divided(matrix, div):
     """
     Divide all elements of a matrix by div and return a new matrix.
 
-    Each element is rounded to 2 decimal places.
+    Args:
+        matrix (list of lists): list of lists of ints/floats
+        div (int or float): divisor (must not be 0)
+
+    Raises:
+        TypeError: if matrix is not a valid matrix of numbers
+        TypeError: if rows do not have the same size
+        TypeError: if div is not a number
+        ZeroDivisionError: if div is 0
+
+    Returns:
+        list of lists: new matrix with values divided and rounded to 2 decimals
     """
     err = "matrix must be a matrix (list of lists) of integers/floats"
 
@@ -23,16 +35,16 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    row_size = None
-    new = []
+    row_len = None
+    new_matrix = []
 
     for row in matrix:
         if type(row) is not list or row == []:
             raise TypeError(err)
 
-        if row_size is None:
-            row_size = len(row)
-        elif len(row) != row_size:
+        if row_len is None:
+            row_len = len(row)
+        elif len(row) != row_len:
             raise TypeError("Each row of the matrix must have the same size")
 
         new_row = []
@@ -40,6 +52,7 @@ def matrix_divided(matrix, div):
             if type(x) not in (int, float) or type(x) is bool:
                 raise TypeError(err)
             new_row.append(round(x / div, 2))
-        new.append(new_row)
 
-    return new
+        new_matrix.append(new_row)
+
+    return new_matrix

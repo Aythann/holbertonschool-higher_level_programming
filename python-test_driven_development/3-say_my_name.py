@@ -2,13 +2,22 @@
 """
 This module provides a function that prints a full name.
 
-It validates that first_name and last_name are strings.
+It validates that first_name and last_name are strings and prints:
+My name is <first_name> <last_name>
 """
 
 
 def say_my_name(first_name, last_name=""):
     """
-    Print: My name is <first_name> <last_name>.
+    Print: My name is <first_name> <last_name>
+
+    Args:
+        first_name (str): first name
+        last_name (str): last name (default: "")
+
+    Raises:
+        TypeError: if first_name is not a string
+        TypeError: if last_name is not a string
     """
     if type(first_name) is not str:
         raise TypeError("first_name must be a string")
