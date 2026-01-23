@@ -1,29 +1,17 @@
 #!/usr/bin/python3
 """
-This module provides a function that prints a square using '#'.
+This module provides a function that prints a square with '#'.
 
-The size of the square must be a non-negative integer.
-The function validates the input and prints the square line by line.
+The size must be a non-negative integer.
 """
 
 
 def print_square(size):
     """
-    Print a square of size 'size' using the character '#'.
-
-    Args:
-        size (int): the size of the square to print
-
-    Raises:
-        TypeError: if size is not an integer
-        ValueError: if size is less than 0
+    Print a square of size using the character '#'.
     """
-    if isinstance(size, float) and size < 0:
+    if type(size) is bool or type(size) is not int:
         raise TypeError("size must be an integer")
-
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
-
     if size < 0:
         raise ValueError("size must be >= 0")
 

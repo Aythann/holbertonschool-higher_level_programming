@@ -2,29 +2,17 @@
 """
 This module provides a function that prints a full name.
 
-The function validates that the provided first and last names
-are strings and prints the formatted sentence accordingly.
+It validates that first_name and last_name are strings.
 """
 
 
 def say_my_name(first_name, last_name=""):
     """
-    Print a formatted name using the provided first and last names.
-
-    Args:
-        first_name (str): the first name to print
-        last_name (str): the last name to print (default is an empty string)
-
-    Raises:
-        TypeError: if first_name is not a string
-        TypeError: if last_name is not a string
+    Print: My name is <first_name> <last_name>.
     """
-    if not isinstance(first_name, str):
+    if type(first_name) is not str:
         raise TypeError("first_name must be a string")
-    if not isinstance(last_name, str):
+    if type(last_name) is not str:
         raise TypeError("last_name must be a string")
 
-    if last_name == "":
-        print("My name is {}".format(first_name))
-    else:
-        print("My name is {} {}".format(first_name, last_name))
+    print("My name is {} {}".format(first_name, last_name))
