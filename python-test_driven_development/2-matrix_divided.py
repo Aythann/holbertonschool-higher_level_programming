@@ -27,32 +27,24 @@ def matrix_divided(matrix, div):
     """
     msg = "matrix must be a matrix (list of lists) of integers/floats"
 
-    if not isinstance(matrix, list) or matrix == []:
-        raise TypeError(msg)
-
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
-
     if div == 0:
         raise ZeroDivisionError("division by zero")
+
+    if matrix == []:
+        raise ValueError(msg)
 
     if not all(isinstance(row, list) for row in matrix):
         raise TypeError(msg)
 
-    row_len = None
-    new_matrix = []
+    row_length = len(matrix[0])
 
     for row in matrix:
-        if row_len is None:
-            row_len = len(row)
-        if len(row) != row_len:
+        if len(row) != row_length:
             raise TypeError("Each row of the matrix must have the same size")
-
-        new_row = []
-        for x in row:
-            if not isinstance(x, (int, float)):
+        for i in row:
+            if not isinstance(i, (int, float)):
                 raise TypeError(msg)
-            new_row.append(round(x / div, 2))
-        new_matrix.append(new_row)
 
-    return new_matrix
+    return [[round(i / div, 2) for i in row] for row in matrix]
