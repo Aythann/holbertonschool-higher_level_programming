@@ -14,7 +14,7 @@ Traceback (most recent call last):
 TypeError: first_name must be a string
 
 >>> say_my_name("Aythan", "Cristovao !")
-My name is Aythan Coucou !
+My name is Aythan Cristovao !
 
 >>> say_my_name(12, "Aythan")
 Traceback (most recent call last):
