@@ -8,25 +8,18 @@ It prints 2 new lines after each of these characters: '.', '?' and ':'.
 
 def text_indentation(text):
     """Print a text with 2 new lines after '.', '?' and ':'."""
-    if text = "":
-        raise TypeError("text must be a string")
-
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    i = 0
-    n = len(text)
+    special = ".?:"
+    buff = ""
 
-    while i < n and text[i] == ' ':
-        i += 1
+    for ch in text:
+        buff += ch
+        if ch in special:
+            print(buff.strip())
+            print()
+            buff = ""
 
-    while i < n:
-        print(text[i], end="")
-        if text[i] == "\n" or text[i] in ".?:":
-            if text[i] in ".?:":
-                print("\n")
-            i += 1
-            while i < n and text[i] == ' ':
-                i += 1
-            continue
-        i += 1
+    if buff.strip():
+        print(buff.strip(), end="")
