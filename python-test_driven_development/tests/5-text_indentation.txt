@@ -16,6 +16,10 @@ no.
 >>> text_indentation("No special chars")
 No special chars
 
+>>> text_indentation("")
+Traceback (most recent call last):
+TypeError: text must be a string
+
 >>> text_indentation(123)
 Traceback (most recent call last):
 TypeError: text must be a string
