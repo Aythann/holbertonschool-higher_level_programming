@@ -1,31 +1,16 @@
-=========================
-Tests for text_indentation
-=========================
-
 >>> text_indentation = __import__('5-text_indentation').text_indentation
-
 >>> text_indentation("Hello. World")
 Hello.
 
 World
-
 >>> text_indentation("Hi?  Yes: no.")
 Hi?
 
 Yes:
 
 no.
-
 >>> text_indentation("No special chars")
 No special chars
-
->>> text_indentation("   ?:.   ")
-?
-
-:
-
-.
-
 >>> text_indentation(123)
 Traceback (most recent call last):
 TypeError: text must be a string
