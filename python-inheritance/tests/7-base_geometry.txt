@@ -1,22 +1,54 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
+>>> class MyInt(int):
+...     pass
 >>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("subclass_int", MyInt(5))
 >>> bg.integer_validator("width", 89)
-
->>> try:
-...     bg.integer_validator("name", "John")
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] name must be an integer
-
->>> try:
-...     bg.integer_validator("age", 0)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
-
->>> try:
-...     bg.integer_validator("distance", -4)
-... except Exception as e:
-...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] distance must be greater than 0
+>>> bg.integer_validator("min_value", 1)
+>>> bg.integer_validator("big_value", 10**10)
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+ValueError: distance must be greater than 0
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+TypeError: name must be an integer
+>>> bg.integer_validator("float_val", 0.4)
+Traceback (most recent call last):
+TypeError: float_val must be an integer
+>>> bg.integer_validator("neg_float", -0.5)
+Traceback (most recent call last):
+TypeError: neg_float must be an integer
+>>> bg.integer_validator("bool_val", True)
+Traceback (most recent call last):
+TypeError: bool_val must be an integer
+>>> bg.integer_validator("none_val", None)
+Traceback (most recent call last):
+TypeError: none_val must be an integer
+>>> bg.integer_validator("list_val", [1,2,3])
+Traceback (most recent call last):
+TypeError: list_val must be an integer
+>>> bg.integer_validator("tuple_val", (1,2))
+Traceback (most recent call last):
+TypeError: tuple_val must be an integer
+>>> bg.integer_validator("dict_val", {"a":1})
+Traceback (most recent call last):
+TypeError: dict_val must be an integer
+>>> bg.integer_validator("set_val", {1,2})
+Traceback (most recent call last):
+TypeError: set_val must be an integer
+>>> bg.integer_validator("complex_val", 3+4j)
+Traceback (most recent call last):
+TypeError: complex_val must be an integer
+>>> bg.integer_validator("bytes_val", b"123")
+Traceback (most recent call last):
+TypeError: bytes_val must be an integer
+>>> bg.integer_validator("false_val", False)
+Traceback (most recent call last):
+TypeError: false_val must be an integer
