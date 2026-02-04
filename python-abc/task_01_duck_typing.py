@@ -28,7 +28,11 @@ class Circle(Shape):
     """Concrete circle shape."""
 
     def __init__(self, radius):
-        """Initialize a Circle with a radius."""
+        """Initialize a Circle with a positive numeric radius."""
+        if not isinstance(radius, (int, float)):
+            raise TypeError("radius must be a number")
+        if radius < 0:
+            raise ValueError("radius must be non-negative")
         self.radius = radius
 
     def area(self):
@@ -44,7 +48,15 @@ class Rectangle(Shape):
     """Concrete rectangle shape."""
 
     def __init__(self, width, height):
-        """Initialize a Rectangle with width and height."""
+        """Initialize a Rectangle with positive numeric width and height."""
+        if not isinstance(width, (int, float)):
+            raise TypeError("width must be a number")
+        if not isinstance(height, (int, float)):
+            raise TypeError("height must be a number")
+        if width < 0:
+            raise ValueError("width must be non-negative")
+        if height < 0:
+            raise ValueError("height must be non-negative")
         self.width = width
         self.height = height
 
