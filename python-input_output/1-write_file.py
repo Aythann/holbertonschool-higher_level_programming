@@ -4,6 +4,5 @@
 
 def write_file(filename="", text=""):
     """Writes a string to a text file (UTF8) and returns the number of characters written."""
-	if filename:
-        with open(filename, "w", encoding="utf-8") as write_file:
-            return write_file.write(text)
+    with open(filename, "w", encoding="utf-8") as f:
+        return f.write(text)
