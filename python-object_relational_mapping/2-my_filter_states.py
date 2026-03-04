@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Displays states where name matches the argument."""
+"""Displays states where name matches the argument (NOT injection-safe)."""
 import sys
 import MySQLdb
 
@@ -13,16 +13,10 @@ if __name__ == "__main__":
         port=3306,
         charset="utf8",
     )
-
     cur = db.cursor()
-
-    cur.execute(
-        "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-        .format(sys.argv[4])
-    )
-
+    name = sys.argv[4]
+    cur.execute("SELECT*FROM states WHERE name='{}' ORDER BY id".format(name))
     for row in cur.fetchall():
         print(row)
-
     cur.close()
     db.close()
